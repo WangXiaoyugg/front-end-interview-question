@@ -15,3 +15,24 @@ function queryParam(name) {
     const params = new URLSearchParams(search);
     return params.get(name)
 }   
+
+// 传统方式
+function queryToObj() {
+    const res = {}
+    const search = window.location.search.substring(1);
+    search.split('&').forEach((item) => {
+        const [ key, val ] = item.split('=')
+        res[key] = val;
+    })
+    return res;
+}
+
+// URLSearchParams
+function queryToObj() {
+    const res = {}
+    const paramList = new URLSearchParams(location.search);
+    paramList.forEach((val, key) => {
+        res[key] = val
+    })
+    return res;
+}
