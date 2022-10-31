@@ -88,3 +88,44 @@
       return result.code
    }
    ```
+
+6. 如何实现一个plugin?
+   
+   ```javascript
+   // LogPlugin.js
+   const fs = require('fs')
+   const json = require('format-json')
+   class LogPlugin {
+      constructor(options) {
+        this.options = options
+      }
+
+      apply(compiler) {
+        compiler.hooks.done.tapAsync('getStats', () => {
+          const log = json.plain(stats.toJSON())
+          const output = this.options.output
+          fs.writeFileSync(output, log)
+          
+        })
+      }
+   }
+
+   module.exports = LogPlugin
+
+
+
+   // webpack.config.js
+   const path = require('path')
+   const LogPlugin = require('./plugins/LogPlugin.js')
+
+   module.exports = {
+      entry: './index.js',
+      mode: 'development',
+      plugins: [
+        new LogPlugin({
+          output: path.resolve(__dirname, 'webpack.log.json')
+        })
+      ]
+   }
+   
+   ```
