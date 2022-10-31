@@ -74,3 +74,17 @@
 5. plugin的执行顺序？
     - 执行顺序与配置顺序无关
     - 插件的执行顺序，与webpack依赖的`tapable`的事件发布订阅顺序一致
+
+
+5. 如何实现一个loader ？
+   
+   ```javascript
+   // uglify-loader, 实现对js的压缩
+   // loader 本质也是一个函数
+   const UglifyJS = require('uglify-js')
+   module.exports = (source) => {
+      // source 是源文件
+      const result  = UglifyJS.minify(source)
+      return result.code
+   }
+   ```
