@@ -76,7 +76,7 @@
     - 插件的执行顺序，与webpack依赖的`tapable`的事件发布订阅顺序一致
 
 
-5. 如何实现一个loader ？
+6. 如何实现一个loader ？
    
    ```javascript
    // uglify-loader, 实现对js的压缩
@@ -89,7 +89,7 @@
    }
    ```
 
-6. 如何实现一个plugin?
+7. 如何实现一个plugin?
    
    ```javascript
    // LogPlugin.js
@@ -129,3 +129,8 @@
    }
    
    ```
+
+8. webpack的loader 和plugin的区别
+    - loader 能做的,plugin 也能做
+    - 执行顺序, loader只能在固定阶段执行，plugin可以在任何生命周期执行
+    - loader本质上是客户端识别不了的源码进行翻译，plugin执行的是一些副操作 
