@@ -66,3 +66,98 @@
    - 字间距
      - word-spacing
   
+3. css 如何实现绝对居中？
+   - 定宽高
+     - 绝对定位 + 负margin值
+     - 绝对定位 + margin auto
+   - 不定宽高
+     - 绝对定位 + transform
+     - table-cell
+     - flex 布局
+
+   ```css
+   /** 绝对定位 + 负margin值  */
+   .box-wrapper {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      position: relative;
+   }
+   .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid blue;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -50px;
+      margin-top: -50px;
+   }
+
+   /** 绝对定位 + margin auto  */
+   .box-wrapper {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      position: relative;
+   }
+   .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid blue;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+   }
+
+   /** 绝对定位 + transform  */
+   .box-wrapper {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      position: relative;
+   }
+   .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid blue;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+   }
+
+   /** table-cell  */
+   .box-wrapper {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+   }
+   .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid blue;
+      display: inline-block;
+   }
+
+   /** flex 布局 */
+   .box-wrapper {
+      width: 300px;
+      height: 300px;
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   .box {
+      width: 100px;
+      height: 100px;
+      border: 1px solid blue;
+   }
+   ```
