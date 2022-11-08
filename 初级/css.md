@@ -44,3 +44,25 @@
         padding: 0;
     }
    ```
+
+
+2. css 中哪些属性是可以继承的？
+   - 字体
+     - font
+     - font-family
+     - font-size
+     - font-style
+     - font-variant
+     - font-weight
+   - 字符间距
+     - letter-spacing
+   - 文字展示
+     - line-height
+     - text-align
+     - text-indent
+     - text-transform
+   - 可见性
+     - visibility
+   - 字间距
+     - word-spacing
+  
